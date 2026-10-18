@@ -1,0 +1,46 @@
+name: ci
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches-ignore: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: typecheck + build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+
+      - name: İlk yükleme bütçesi
+        run: |
+          entry=$(ls dist/assets/index-*.js)
+          css=$(ls dist/assets/style-*.css)
+          bytes=$(cat "$entry" "$css" | gzip -9 -c | wc -c)
+          kb=$((bytes / 1024))
+          echo "ilk yükleme (js+css, gzip): ${kb} KB"
+          if [ "$kb" -gt 90 ]; then
+            echo "::error::İlk yükleme 90 KB sınırını aştı (${kb} KB)"
+            exit 1
+          fi
+
+      - name: PDF motoru tembel mi?
+        run: |
+          if grep -qE '(pdf|render|pdf\.worker)-[A-Za-z0-9_-]+\.(js|mjs)' dist/index.html; then
+            echo "::error::PDF motoru açılış sayfasında önceden yükleniyor."
+            exit 1
+          fi
+          echo "PDF motoru yalnızca araç açılınca iniyor."

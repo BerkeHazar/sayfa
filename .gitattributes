@@ -1,0 +1,11 @@
+# Satır sonları: Windows'ta CRLF, Linux CI'da LF olursa her dosya değişmiş görünür.
+* text=auto eol=lf
+
+# İkili dosyalar: dönüştürme yok, diff yok
+*.png binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.woff2 binary
+*.ttf binary
+*.pdf binary

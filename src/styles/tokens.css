@@ -1,0 +1,169 @@
+/* ============================================================
+   sayfa — tasarım jetonları
+   Eksen: matbaa kâğıdı + iş emri formu.
+   Tek sinyal rengi (ember), sıcak kâğıt, hairline çizgi, keskin köşe.
+   ============================================================ */
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../fonts/bricolage-latin.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../fonts/bricolage-latin-ext.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("../fonts/instrument-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("../fonts/instrument-latin-ext.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../fonts/jetbrains-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../fonts/jetbrains-latin-ext.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  /* Yüzeyler */
+  --paper: #f4f0e8;
+  --paper-2: #fbf9f4;
+  --paper-3: #ece6d9;
+  --ink: #14120e;
+  --ink-90: #1f1c16;
+  --ink-70: #3b372e;
+  --ink-45: #6f6959;
+  --ink-25: #8b8373;
+
+  /* Çizgi */
+  --rule: #d6cebf;
+  --rule-soft: #e3dccd;
+  --rule-strong: #b6ac99;
+
+  /* Sinyal */
+  --ember: #e23a22;
+  --ember-deep: #b92a14;
+  --ember-soft: #fbe6e0;
+  --ok: #2c6a4c;
+  --warn: #8a5f10;
+
+  /* Tipografi */
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --font-ui: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+
+  /* Hareket */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast: 160ms;
+  --t-mid: 320ms;
+  --t-slow: 560ms;
+  --t-xslow: 900ms;
+
+  /* Ölçü */
+  --r: 3px;
+  --maxw: 1340px;
+  --gutter: clamp(18px, 4.2vw, 56px);
+  --hair: 1px solid var(--rule);
+  --hair-soft: 1px solid var(--rule-soft);
+  --topbar-h: 68px;
+
+  --shadow-card: 0 1px 0 var(--rule), 0 18px 40px -28px rgba(20, 18, 14, 0.45);
+  --shadow-pop: 0 24px 70px -30px rgba(20, 18, 14, 0.55);
+
+  /* Sinyal üstü metin */
+  --on-ember: #ffffff;
+  --on-ember-soft: rgba(255, 255, 255, 0.8);
+  --scrim: rgba(20, 18, 14, 0.46);
+
+  /* Levha — sayfadaki tek koyu blok */
+  --plate-bg: #14120e;
+  --plate-fg: #f4f0e8;
+  --plate-line: rgba(244, 240, 232, 0.22);
+  --plate-muted: rgba(244, 240, 232, 0.66);
+  --numeral: rgba(244, 240, 232, 0.055);
+  --plate-icon: #e23a22;
+}
+
+/* ------------------------------------------------------------
+   Gece — negatif baskı.
+   Kâğıt siyaha değil, is mürekkebine dönüyor (#12100C);
+   sinyal kırmızı karanlıkta bir ton açılıyor ki kontrastı koruşun.
+   ------------------------------------------------------------ */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --paper: #12100c;
+  --paper-2: #191712;
+  --paper-3: #221f18;
+  --ink: #f3eee4;
+  --ink-90: #e6e0d3;
+  --ink-70: #c3bba9;
+  --ink-45: #948b7a;
+  --ink-25: #6e6656;
+
+  --rule: #2e2b23;
+  --rule-soft: #252219;
+  --rule-strong: #4a4436;
+
+  --ember: #ff5c3d;
+  --ember-deep: #ff7a5e;
+  --ember-soft: #2a1712;
+  --ok: #69c39a;
+  --warn: #e0ac5a;
+
+  --on-ember: #1a0a05;
+  --on-ember-soft: rgba(26, 10, 5, 0.72);
+  --scrim: rgba(0, 0, 0, 0.62);
+
+  --plate-bg: #1b1812;
+  --plate-fg: #f3eee4;
+  --plate-line: rgba(243, 238, 228, 0.16);
+  --plate-muted: rgba(243, 238, 228, 0.6);
+  --numeral: rgba(243, 238, 228, 0.045);
+
+  --shadow-card: 0 1px 0 var(--rule), 0 18px 40px -28px rgba(0, 0, 0, 0.85);
+  --shadow-pop: 0 24px 70px -30px rgba(0, 0, 0, 0.9);
+}
+

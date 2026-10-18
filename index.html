@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="tr" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>sayfa — PDF araçları, tarayıcında</title>
+    <meta
+      name="description"
+      content="Birleştir, böl, döndür, sırala, filigran ekle. PDF işleri tarayıcında biter; dosyan cihazından çıkmaz. Hesap yok, yükleme yok."
+    />
+    <!-- Sekme çubuğu rengi: koyu temada beyaz bir şerit kalmasın -->
+    <meta name="theme-color" content="#f4f0e8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#12100c" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Simgeler: SVG'yi destekleyen tarayıcı onu, kalanı ICO'yu kullanır -->
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <meta name="application-name" content="sayfa" />
+    <meta name="apple-mobile-web-app-title" content="sayfa" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    <meta property="og:title" content="sayfa — PDF araçları, tarayıcında" />
+    <meta
+      property="og:description"
+      content="Birleştir, böl, döndür, kırp, damgala. 16 PDF aracı, hepsi tarayıcında çalışır; dosya cihazından çıkmaz."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <!-- Mutlak adres şart: önizleme botları göreli yolu çözemiyor. -->
+    <meta property="og:url" content="https://berkehazar.github.io/sayfa/" />
+    <meta property="og:image" content="https://berkehazar.github.io/sayfa/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="sayfa — PDF işleri, tek sayfada biter." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://berkehazar.github.io/sayfa/og.png" />
+
+    <script>
+      // Tema, ilk boyamadan önce belirlenir — karanlık modda beyaz flaş olmasın.
+      (function () {
+        try {
+          var saved = localStorage.getItem("sayfa-theme");
+          var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.dataset.theme = saved || (dark ? "dark" : "light");
+        } catch (e) {
+          /* localStorage kapalıysa varsayılan aydınlık kalır */
+        }
+      })();
+    </script>
+    <script type="module" src="/src/main.ts"></script>
+    <script>
+      // Uygulama yüklenemezse boş sayfa bırakma: sebebi görünür kıl.
+      setTimeout(function () {
+        var app = document.getElementById("app");
+        if (app && app.children.length === 0) {
+          app.innerHTML =
+            '<div style="max-width:34rem;margin:18vh auto;padding:0 1.5rem;font-family:system-ui">' +
+            '<p style="font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#6f6959">sayfa</p>' +
+            '<h1 style="font-size:1.6rem;margin:.5rem 0 .6rem;letter-spacing:-.03em">Uygulama yüklenemedi</h1>' +
+            '<p style="color:#3b372e;line-height:1.6">Dosya <code>file://</code> ile açılmış olabilir ya da ' +
+            'ağ isteği engellenmiş olabilir. Bir sunucu üzerinden açmayı dene: ' +
+            '<code>npm run dev</code></p></div>';
+        }
+      }, 4000);
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">İçeriğe geç</a>
+    <div id="app"></div>
+    <div id="live" class="sr-only" role="status" aria-live="polite"></div>
+    <noscript>
+      <p style="padding: 2rem; font-family: system-ui">
+        sayfa, PDF işlemlerini tarayıcında yaptığı için JavaScript'e ihtiyaç
+        duyar. Lütfen JavaScript'i aç.
+      </p>
+    </noscript>
+  </body>
+</html>

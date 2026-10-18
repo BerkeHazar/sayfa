@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!--
+    sayfa işareti: kâğıt zemin üzerinde mürekkep sayfa, kıvrık köşe sinyal kırmızısı.
+
+    Geometri bilerek 32 birimlik ızgaraya oturtuldu: 16px'te 1 birim = 0.5px,
+    yani çizgiler (y=15, y=21) tam piksel satırına düşüyor ve bulanıklaşmıyor.
+    Kenar boşluğu 3 birim = 1.5px; sayfa 16px'te 13 × 13.5px kalıyor.
+
+    Gece temasında negatif baskı: zemin is mürekkebi, sayfa kâğıt rengi.
+    Böylece koyu sekme çubuğunda parlak bir kare gibi durmuyor.
+  -->
+  <style>
+    .bg { fill: #f4f0e8 }
+    .sheet { fill: #14120e }
+    .fold { fill: #e23a22 }
+    .rule { stroke: #f4f0e8 }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #12100c }
+      .sheet { fill: #f3eee4 }
+      .fold { fill: #ff5c3d }
+      .rule { stroke: #12100c }
+    }
+  </style>
+  <rect class="bg" width="32" height="32"/>
+  <path class="sheet" d="M3 2.5H21L29 10.5V29.5H3z"/>
+  <path class="fold" d="M21 2.5L29 10.5H21z"/>
+  <g class="rule" stroke-width="2">
+    <path d="M7 15h18M7 21h11"/>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+# Bağımlılıklar ve derleme çıktısı — CI kendisi üretir
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+
+# Editör ve işletim sistemi gürültüsü
+.DS_Store
+Thumbs.db
+*.log
+*.local
+.idea/
+.vscode/
+
+# WorkBuddy oturum notları — depoya girmemeli
+.workbuddy-ai/
